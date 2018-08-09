@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script>
+        function validateForm() {
+            var name = document.LogIn.uid.value;
+            var pass = document.LogIn.pass.value;
+            if (name == null || name == "") {
+                alert("Please enter your username.");
+                return false;
+            }
+            if (pass.length < 6) {
+                alert("Please enter valid password.");
+                return false;
+            }
+            else if (name != "Admin" || pass != "password") {
+                alert("User name or password is not correct!");
+                return false;
+            }
+        }
+    </script>
+</head>
+<body bgcolor="cyan">
+    <center>
+    <form name="LogIn" method="POST" action="loggedIn.html" onsubmit="return validateForm()">
+            <div>
+                <span>Username: </span>
+                <span><input class="input100" type="text" name="uid" placeholder="Username"></span>
+            </div>
+            <div>
+                <span>Password: </span>
+                <span><input class="input100" type="password" name="pass" placeholder="Password"></span>
+            </div>
+            <div>
+                <input type="submit" value="Log In">
+            </div>
+    </form>
+</center>
+</body>
+</html>
