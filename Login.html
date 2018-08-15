@@ -56,14 +56,74 @@ div
     color: black;
 }
 </style>
+<script>
+
+    function validateForm() {
+
+        var name = document.LogIn.uid.value;
+
+        var pass = document.LogIn.pass.value;
+
+        if (name == null || name == "") {
+
+            alert("Please enter your username.");
+
+            return false;
+
+        }
+
+        if (pass.length < 6) {
+
+            alert("Please enter valid password.");
+
+            return false;
+
+        }
+
+        else if (name != "Admin" || pass != "password") {
+
+            alert("User name or password is not correct!");
+
+            return false;
+
+        }
+
+    }
+
+</script>
 </head>
-<body background="F:\ECOMMERCE\ClothingSite\images\dark.jpg">
+<body background="images\dark.jpg">
 <div>
 <h1 style="font-size:60px;font-family:garamond;position:absolute;margin:-185px -87px;color:white;">Login</h1>
 <p style="font-size:22px;font-family:constantia;position:absolute;margin:-90px -165px;color:white;">
 <b>Username</b> <br> <input type="email" name="email" id="email" placeholder="Enter e-mail here"><br><br>
 <b>Password</b> <br> <input type="password" name="password" id="password" placeholder="Enter password here"><br><br>
-<button class="button button1">Login</button>
+<form name="LogIn" method="POST" action="loggedIn.html" onsubmit="return validateForm()">
+
+    <div>
+
+        <span>Username: </span>
+
+        <span><input class="input100" type="text" name="uid" placeholder="Username"></span>
+
+    </div>
+
+    <div>
+
+        <span>Password: </span>
+
+        <span><input class="input100" type="password" name="pass" placeholder="Password"></span>
+
+    </div>
+
+    <div>
+
+        <input type="submit" class="button button1" value="Log In">
+
+    </div>
+
+</form>
+
 <a href="" target="_blank">Forgot Password?</a></p>
 </div>
 </body>
